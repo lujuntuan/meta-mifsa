@@ -1,0 +1,11 @@
+[Unit]
+Description=The fdbus name_server daemon
+
+[Service]
+Type=simple 
+ExecStart=/usr/bin/name_server
+Restart=always
+Environment=
+
+[Install]
+WantedBy=multi-user.target

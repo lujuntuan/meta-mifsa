@@ -1,0 +1,42 @@
+diff -uprN capicxx-core-runtime-master/CMakeLists.txt capicxx-core-runtime/CMakeLists.txt
+--- capicxx-core-runtime-master/CMakeLists.txt	2020-10-27 02:02:02.000000000 +0800
++++ capicxx-core-runtime/CMakeLists.txt	2022-08-09 22:30:53.125915644 +0800
+@@ -62,7 +62,7 @@ set(INSTALL_INCLUDE_DIR include/CommonAP
+ if(WIN32 AND NOT CYGWIN)
+   set(DEF_INSTALL_CMAKE_DIR cmake)
+ else()
+-  set(DEF_INSTALL_CMAKE_DIR lib/cmake/CommonAPI-${COMPONENT_VERSION})
++  set(DEF_INSTALL_CMAKE_DIR ${INSTALL_LIB_DIR}/cmake/CommonAPI-${COMPONENT_VERSION})
+ endif()
+ set(INSTALL_CMAKE_DIR ${DEF_INSTALL_CMAKE_DIR} CACHE PATH "Installation directory for CMake files")
+ 
+@@ -251,7 +251,7 @@ endif()
+ # create pkg-config file
+ if(NOT WIN32 AND PKG_CONFIG_FOUND)
+         configure_file(CommonAPI.pc.in ${PROJECT_BINARY_DIR}/CommonAPI.pc @ONLY)
+-        install(FILES ${PROJECT_BINARY_DIR}/CommonAPI.pc DESTINATION lib/pkgconfig)
++        install(FILES ${PROJECT_BINARY_DIR}/CommonAPI.pc DESTINATION ${INSTALL_LIB_DIR}/pkgconfig)
+ endif()
+ 
+ ##############################################################################
+diff -uprN capicxx-core-runtime-master/src/CommonAPI/Utils.cpp capicxx-core-runtime/src/CommonAPI/Utils.cpp
+--- capicxx-core-runtime-master/src/CommonAPI/Utils.cpp	2020-10-27 02:02:02.000000000 +0800
++++ capicxx-core-runtime/src/CommonAPI/Utils.cpp	2022-06-10 23:39:01.557906016 +0800
+@@ -31,7 +31,7 @@ void trim(std::string& toTrim) {
+         std::find_if(
+             toTrim.begin(),
+             toTrim.end(),
+-            std::not1(std::ptr_fun(isspace))
++            std::not1(std::function<bool(char)>(isspace))
+         )
+     );
+ 
+@@ -39,7 +39,7 @@ void trim(std::string& toTrim) {
+         std::find_if(
+             toTrim.rbegin(),
+             toTrim.rend(),
+-            std::not1(std::ptr_fun(isspace))).base(),
++            std::not1(std::function<bool(char)>(isspace))).base(),
+             toTrim.end()
+     );
+ }

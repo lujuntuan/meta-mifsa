@@ -1,0 +1,21 @@
+diff -uprN capicxx-someip-runtime-master/CMakeLists.txt capicxx-someip-runtime/CMakeLists.txt
+--- capicxx-someip-runtime-master/CMakeLists.txt	2021-11-13 03:05:18.000000000 +0800
++++ capicxx-someip-runtime/CMakeLists.txt	2022-08-09 22:30:38.929231957 +0800
+@@ -100,7 +100,7 @@ set (INSTALL_INCLUDE_DIR include/CommonA
+ if (WIN32 AND NOT CYGWIN)
+     set (DEF_INSTALL_CMAKE_DIR cmake)
+ else ()
+-    set (DEF_INSTALL_CMAKE_DIR lib/cmake/CommonAPI-SomeIP-${COMPONENT_VERSION})
++    set (DEF_INSTALL_CMAKE_DIR ${INSTALL_LIB_DIR}/cmake/CommonAPI-SomeIP-${COMPONENT_VERSION})
+ endif ()
+ 
+ set (INSTALL_CMAKE_DIR ${DEF_INSTALL_CMAKE_DIR} CACHE PATH "Installation directory for CMake files")
+@@ -210,7 +210,7 @@ install (
+ # create pkg-config file
+ if(NOT WIN32)
+         configure_file(CommonAPI-SomeIP.pc.in ${PROJECT_BINARY_DIR}/CommonAPI-SomeIP.pc @ONLY)
+-        install(FILES ${PROJECT_BINARY_DIR}/CommonAPI-SomeIP.pc DESTINATION lib/pkgconfig)
++        install(FILES ${PROJECT_BINARY_DIR}/CommonAPI-SomeIP.pc DESTINATION ${INSTALL_LIB_DIR}/pkgconfig)
+ endif()
+ 
+ ##############################################################################

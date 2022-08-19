@@ -1,0 +1,20 @@
+METADIR ?= "${@os.path.abspath('##OEROOT##/..')}"
+#
+BBPATH = "${TOPDIR}"
+BBFILES ?= ""
+BBLAYERS ?= " \
+    ${METADIR}/poky/meta \
+    ${METADIR}/poky/meta-poky \
+    ${METADIR}/poky/meta-yocto-bsp \
+    ${METADIR}/meta-openembedded/meta-oe \
+    ${METADIR}/meta-openembedded/meta-filesystems \
+    ${METADIR}/meta-openembedded/meta-python \
+    ${METADIR}/meta-openembedded/meta-networking \
+    ${METADIR}/meta-openembedded/meta-multimedia \
+    "
+BBLAYERS_NON_REMOVABLE ?= " \
+    ${METADIR}/poky/meta \
+    ${METADIR}/poky/meta-poky \
+    "
+#
+require ${METADIR}/meta-mifsa/conf/template/bblayers-common.conf

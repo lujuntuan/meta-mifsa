@@ -1,0 +1,8 @@
+METADIR ?= "${@os.path.abspath('##OEROOT##/..')}"
+#
+MACHINE ??= "qemuarm64"
+DISTRO ?= "mifsa-sample"
+DEFAULTTUNE ?= "aarch64"
+CONNECTIVITY_CHECK_URIS = ""
+#
+require ${METADIR}/meta-mifsa/conf/template/local-common.conf
