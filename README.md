@@ -4,7 +4,16 @@ This layer depends on:
 
 URI: https://github.com/openembedded/openembedded-core
 
-## How to use
+Support poky branch:
+
+- sumo
+- thud
+- warrior
+- dunfell
+- hardknott
+- gatesgarth
+
+## How to use:
 
 Put the required meta in the unified directory, for example:
 
@@ -31,7 +40,7 @@ bitbake mifsa-image-qemu
 
 
 
-## How to adapt
+## How to adapt:
 
 TODO:
 
