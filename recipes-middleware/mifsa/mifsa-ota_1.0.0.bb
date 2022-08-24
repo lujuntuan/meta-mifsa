@@ -4,6 +4,10 @@ require mifsa-modules.inc
 
 SYSTEMD_AUTO_ENABLE_${PN} = "enable"
 
-RDEPENDS_${PN} = " \
+DEPENDS_append += " \
+    openssl \
+"
+
+RDEPENDS_${PN}_append += " \
     bsdiff \
 "
