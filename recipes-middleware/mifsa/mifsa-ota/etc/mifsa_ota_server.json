@@ -3,7 +3,7 @@
     "id":"123456789",
     "token":"a16c62009a414d85043b19be9182fde0",
     "web_url":"https://dcus.club",
-    "web_ca_cert_path":"/usr/share/mifsa-ota/ssl/web/web-ca.crt",
+    "web_ca_cert_path":"/etc/ssl/cert/Hawkbit-CA-Cert.crt",
     "web_server_cert_path":"/usr/share/mifsa-ota/ssl/local/local-server.crt",
     "web_server_key_path":"/usr/share/mifsa-otas/ssl/local/local-server.key"
 }
