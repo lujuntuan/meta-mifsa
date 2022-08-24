@@ -21,4 +21,8 @@ SRC_URI_append += "file://etc"
 do_install_append() {
     install -d ${D}${sysconfdir}/
     install -m 0644 ${WORKDIR}/etc/* ${D}${sysconfdir}/
+    for file in $(find ${D}${bindir} -name "*.sh")
+    do
+        chmod +x ${file}
+    done
 }
