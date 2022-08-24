@@ -1,7 +1,0 @@
-METADIR ?= "${@os.path.abspath('##OEROOT##/..')}"
-#
-require ${METADIR}/meta-mediatek-mt2735/conf/base/local-common.conf
-#
-require ${METADIR}/meta-mifsa/conf/template/local-common.conf
-MACHINE ??= "auto2735evb-ivt-main"
-MIFSA_SRC_SEARCH = "${METADIR}/../src"

@@ -1,5 +1,0 @@
-METADIR ?= "${@os.path.abspath('##OEROOT##/..')}"
-#
-require ${METADIR}/meta-mediatek-mt2735/conf/base/bblayers-common.conf
-#
-require ${METADIR}/meta-mifsa/conf/template/bblayers-common.conf
